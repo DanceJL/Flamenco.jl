@@ -196,7 +196,7 @@ function _parse_headers(stream::BufferedStreams.BufferedInputStream) :: Dict{Str
     # Parse each header line
     # If longer than 4 seconds -> return 408 status
     start::Int64 = Int(floor(Dates.datetime2unix(Dates.now())))
-    while( Int(floor(Dates.datetime2unix(Dates.now()))) - start < 4 )
+    while( !finished && Int(floor(Dates.datetime2unix(Dates.now()))) - start < 4 )
         while (!_is_eof(stream) && !FAILED && !finished)
             fill_header_name::Bool = true
             header_name::String = ""
