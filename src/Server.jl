@@ -114,6 +114,8 @@ function start(f::Function, host::Union{Sockets.IPAddr, String}, port::Integer) 
             finally
                 if isopen(socket)
                     write(socket, response)
+                    BufferedStreams.close(buffered_stream)
+                    Sockets.close(socket)
                 else
                     println("stream closed ...")
                 end
