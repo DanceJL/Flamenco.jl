@@ -112,9 +112,11 @@ function start(f::Function, host::Union{Sockets.IPAddr, String}, port::Integer) 
                     @error exception=(e, stacktrace(catch_backtrace()))
                 end
             finally
-                write(socket, response)
-                BufferedStreams.close(buffered_stream)
-                Sockets.close(socket)
+                if isopen(socket)
+                    write(socket, response)
+                else
+                    println("stream closed ...")
+                end
             end
         end
     end
