@@ -1,7 +1,7 @@
 name = "Flamenco"
 uuid = "98617a16-9322-42db-a24f-fe7c2280ec91"
 authors = ["Chris \"Yoh\" Meyers <48554065+yoh-meyers@users.noreply.github.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 BufferedStreams = "e1450e63-4bb3-523b-b2a4-4ffa8c0fd77d"
